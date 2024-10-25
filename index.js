@@ -42,10 +42,6 @@ function copiarMensagem() {
   // Copia o texto para a área de transferência
   document.execCommand("copy");
 
-  // Alerta ao usuário que o texto foi copiado
-  alert("Mensagem copiada para a área de transferência!");
-}
-
 // Função para limpar os campos de telefone e mensagem
 function limparCampos() {
   document.getElementById("telefone").value = ""; // Limpa o telefone
