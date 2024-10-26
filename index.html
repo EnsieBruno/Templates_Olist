@@ -9,21 +9,46 @@
 </head>
 <body>
     <div class="container">
-        <h1>Retenção</h1>
 
-        <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone">
+        <h1>Agilizador</h1> 
 
-        <button onclick="formatarTelefone()">Formatar</button><br><br>
+        <label for="plano">Planos:</label>
+        <select id="plano" name="plano">
+            <option value="Começar">Começar</option>
+            <option value="Crescer">Crescer</option>
+            <option value="Evoluir">Evoluir</option>
+            <option value="Potencializar">Potencializar</option>
+        </select>
 
-        <label for="mensagem">Mensagem:</label>
+        <label for="setor">Time</label>
+        <select id="setor" name="setor">
+            <option value="Financeiro">Financeiro</option>
+            <option value="Comercial">Comercial</option>
+            <option value="Suporte">Suporte</option>
+            <option value="KA">KA</option>
+        </select>
+
+        <label for="telefone"></label>
+        <input type="text" placeholder="Telefone: (XX) X XXXX - XXXX" id="telefone" name="telefone">
+        <label for="CNPJ"></label>
+        <input type="text" placeholder="CNPJ: XX.XXX.XXX/000X-XX " id="cnpj" name="cnpj">
+        <label for="email"></label>
+        <input type="text" placeholder="Email: User@Olist.com " id="email" name="email">
+        <label for="ticket"></label>
+        <input type="text" placeholder="Ticket: www.olist.com/ticket " id="ticket" name="ticket">
+
+       
+
+        <button onclick="formatarTelefone()">Gerar</button>
+
+        <label for="mensagem"></label>
         <textarea id="mensagem" name="mensagem" rows="10" cols="50"></textarea>
 
         <!-- Botão para copiar o conteúdo -->
-        <button onclick="copiarMensagem()">Copiar mensagem</button>
+        <button id="copy" onclick="copiarMensagem()">Copiar</button>
 
         <!-- Botão para limpar o conteúdo -->
-        <button onclick="limparCampos()">Limpar campos</button>
+        <button id="clear" onclick="limparCampos()">Limpar</button>
     </div>
 </body>
 </html>

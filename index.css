@@ -19,7 +19,7 @@ h1 {
     border-radius: 15px; /* Cantos arredondados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 400px;
+    max-width:400px ;
     width: 100%;
     text-align: center;
 }
@@ -47,12 +47,49 @@ button {
     font-size: 16px;
 }
 
+#plano,
+#setor{
+    width: 37%;
+    padding: 5px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+#copy,
+#clear{
+    max-width: fit-content;
+}
+
 button:hover {
     background-color: #0056b3; /* Cor ao passar o mouse */
 }
 
+
 /* Estilo para o textarea de mensagem */
 textarea {
-    resize: none; /* Remover a opção de redimensionar */
     height: 150px;
+}
+
+/* Estilo para o aviso temporário */
+.aviso {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Estilo para mostrar o aviso */
+.aviso.mostrar {
+    opacity: 1;
 }
