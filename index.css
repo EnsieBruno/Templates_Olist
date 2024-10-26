@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #338be9
 }
 
 /* Container centralizado */
@@ -47,6 +47,10 @@ button {
     font-size: 16px;
 }
 
+label{
+    color: #338be9
+}
+
 #plano,
 #setor{
     width: 37%;
@@ -54,6 +58,7 @@ button {
     margin: 8px 0;
     border-radius: 10px;
     border: 1px solid #ccc;
+    color: #338be9
 }
 
 #copy,
@@ -68,7 +73,7 @@ button:hover {
 
 /* Estilo para o textarea de mensagem */
 textarea {
-    height: 150px;
+    height: 100px;
 }
 
 /* Estilo para o aviso temporário */
