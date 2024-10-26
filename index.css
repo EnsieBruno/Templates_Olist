@@ -3,25 +3,27 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f8ff; /* Azul claro no fundo */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; /* Espaço entre as divs */
     height: 100vh;
     margin: 0;
 }
 
 h1 {
-    color: #338be9
+    color: #338be9;
 }
 
-/* Container centralizado */
+/* Container com 50% da largura da tela */
 .container {
     background-color: #ffffff;
     border-radius: 15px; /* Cantos arredondados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width:400px ;
-    width: 100%;
-    text-align: center;
+    width: 50%; /* 50% da largura da tela */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+#paste__code textarea{
+    height: 80vh;
 }
 
 /* Estilo dos inputs e textarea */
@@ -47,22 +49,23 @@ button {
     font-size: 16px;
 }
 
-label{
-    color: #338be9
+label {
+    font-size: 0.8em;
+    color: #338be9;
 }
 
 #plano,
-#setor{
+#setor {
     width: 37%;
     padding: 5px;
     margin: 8px 0;
     border-radius: 10px;
     border: 1px solid #ccc;
-    color: #338be9
+    color: #338be9;
 }
 
 #copy,
-#clear{
+#clear {
     max-width: fit-content;
 }
 
@@ -70,10 +73,9 @@ button:hover {
     background-color: #0056b3; /* Cor ao passar o mouse */
 }
 
-
 /* Estilo para o textarea de mensagem */
 textarea {
-    height: 100px;
+    height: 65px;
 }
 
 /* Estilo para o aviso temporário */

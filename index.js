@@ -1,4 +1,28 @@
-// Função para formatar telefone e gerar a mensagem
+function preencherDados() {
+  const dados = document.querySelector('#paste__code textarea').value;
+
+  // Expressões regulares para extrair os dados
+  const telefoneRegex = /Celular\s*\n?\s*(\(\d{2}\)\s*\d{5}-\d{4})/;
+  const emailRegex = /E-mail\s*\n?\s*([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/;
+  const cnpjRegex = /CNPJ\s*\n?\s*([\d]{2}\.[\d]{3}\.[\d]{3}\/[\d]{4}-[\d]{2})/;
+
+  // Extraindo os dados
+  const telefoneMatch = dados.match(telefoneRegex);
+  const emailMatch = dados.match(emailRegex);
+  const cnpjMatch = dados.match(cnpjRegex);
+
+  // Verifica se encontrou os dados e extrai os valores
+  const telefone = telefoneMatch ? telefoneMatch[1] : 'Não encontrado';
+  const email = emailMatch ? emailMatch[1] : 'Não encontrado';
+  const cnpj = cnpjMatch ? cnpjMatch[1] : 'Não encontrado';
+
+  // Preencher os campos com os dados extraídos
+  document.getElementById('telefone').value = telefone;
+  document.getElementById('email').value = email;
+  document.getElementById('cnpj').value = cnpj;
+}
+
+// Função para formatar dados e gerar a mensagem
 function formatarTelefone() {
   let telefone = document.getElementById("telefone").value;
   let cnpj = document.getElementById("cnpj").value;
@@ -28,8 +52,7 @@ function formatarTelefone() {
   }
 
   // Gerar a mensagem
-  let mensagem = `
-Boa tarde!
+  let mensagem = `Boa tarde!
 Seller deseja um contato para: 
 Transferencia para o time: ${setor}
 Plano: ${plano}
@@ -38,8 +61,7 @@ E-mail: ${email}
 Ticket Origem: ${ticket}
 Ligar no telefone: ${telefone}
 
-Obrigado, Pessoal!
-  `;
+Obrigado, Pessoal!`;
 
   // Exibir a mensagem no textarea
   document.getElementById("mensagem").value = mensagem;

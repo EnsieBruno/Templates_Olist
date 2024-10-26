@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formatar Telefone</title>
+    <title>Olist Transfer</title>
     <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script> 
 </head>
 <body>
+    <div class="container" id="paste__code">
+        <textarea placeholder="Cole os dados do administrador da empresa aqui" rows="10" cols="50"></textarea>
+        <button id="preencher" onclick="preencherDados()">Preencher dados</button>
+    </div>
     <div class="container">
-
         <h1>Olist ERP</h1> 
 
         <label for="plano">Planos:</label>
@@ -20,7 +23,7 @@
             <option value="Potencializar">Potencializar</option>
         </select>
 
-        <label for="setor">Time</label>
+        <label for="setor">Time:</label>
         <select id="setor" name="setor">
             <option value="Financeiro">Financeiro</option>
             <option value="Comercial">Comercial</option>
@@ -36,8 +39,6 @@
         <input type="text" placeholder="Email: User@Olist.com " id="email" name="email">
         <label for="ticket"></label>
         <input type="text" placeholder="Ticket: www.olist.com/ticket " id="ticket" name="ticket">
-
-       
 
         <button onclick="formatarTelefone()">Gerar</button>
 
