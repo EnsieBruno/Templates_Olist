@@ -1,5 +1,7 @@
 function preencherDados() {
-  const dados = document.querySelector('#paste__code textarea').value;
+  const dadosEmpresa = document.getElementById('dados__empresa').value;
+  const dadosPlano = document.getElementById('dados__plano').value;
+  const dadosDetalhes = document.getElementById('detalhes').value;
 
   // Expressões regulares para extrair os dados
   const telefoneRegex = /Celular\s*\n?\s*(\(\d{2}\)\s*\d{5}-\d{4})/;
@@ -7,9 +9,9 @@ function preencherDados() {
   const cnpjRegex = /CNPJ\s*\n?\s*([\d]{2}\.[\d]{3}\.[\d]{3}\/[\d]{4}-[\d]{2})/;
 
   // Extraindo os dados
-  const telefoneMatch = dados.match(telefoneRegex);
-  const emailMatch = dados.match(emailRegex);
-  const cnpjMatch = dados.match(cnpjRegex);
+  const telefoneMatch = dadosEmpresa.match(telefoneRegex);
+  const emailMatch = dadosEmpresa.match(emailRegex);
+  const cnpjMatch = dadosEmpresa.match(cnpjRegex);
 
   // Verifica se encontrou os dados e extrai os valores
   const telefone = telefoneMatch ? telefoneMatch[1] : 'Não encontrado';
@@ -20,6 +22,27 @@ function preencherDados() {
   document.getElementById('telefone').value = telefone;
   document.getElementById('email').value = email;
   document.getElementById('cnpj').value = cnpj;
+
+  // Buscar o plano compatível
+  const plano = buscarPlano(dadosPlano);
+  document.getElementById('plano').value = plano;
+
+  // Exibir o conteúdo de detalhes para uso posterior
+  window.detalhes = dadosDetalhes;
+}
+
+function buscarPlano(dadosPlano) {
+  // Lista de planos possíveis
+  const planos = ["Começar", "Crescer", "Evoluir", "Potencializar"];
+  
+  // Verifica se algum plano está presente na textarea de dados do plano
+  for (let plano of planos) {
+    if (dadosPlano.includes(plano)) {
+      return plano; // Retorna o plano encontrado
+    }
+  }
+  
+  return "Começar"; // Retorno padrão se nenhum plano for encontrado
 }
 
 // Função para formatar dados e gerar a mensagem
@@ -39,9 +62,9 @@ function formatarTelefone() {
 
   // Verificar se tem 11 dígitos para aplicar o formato de telefone celular
   if (telefone.length === 11) {
-      telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+    telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
   } else {
-      telefone = "NA";
+    telefone = "NA";
   }
 
   // Verificar se tem 14 dígitos, para aplicar o formato CNPJ
@@ -53,13 +76,15 @@ function formatarTelefone() {
 
   // Gerar a mensagem
   let mensagem = `Boa tarde!
-Seller deseja um contato para: 
+
 Transferencia para o time: ${setor}
 Plano: ${plano}
 CNPJ: ${cnpj}
 E-mail: ${email}
 Ticket Origem: ${ticket}
 Ligar no telefone: ${telefone}
+
+Detalhes: ${window.detalhes}
 
 Obrigado, Pessoal!`;
 
@@ -69,38 +94,26 @@ Obrigado, Pessoal!`;
 
 // Função para copiar o conteúdo da textarea de mensagem
 function copiarMensagem() {
-  // Seleciona o elemento textarea com a mensagem
   let mensagemTexto = document.getElementById("mensagem");
-
-  // Seleciona o texto do textarea
   mensagemTexto.select();
   mensagemTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
-
-  // Copia o texto para a área de transferência
   document.execCommand("copy");
-
-  // Alerta ao usuário que o texto foi copiado
   mostrarAviso("Texto copiado com sucesso!");
 }
 
 function mostrarAviso(mensagem) {
-  // Cria o elemento de aviso
   const aviso = document.createElement("div");
   aviso.className = "aviso";
   aviso.textContent = mensagem;
-
-  // Adiciona o aviso ao body
   document.body.appendChild(aviso);
 
-  // Mostra o aviso com um pequeno atraso
   setTimeout(() => {
-      aviso.classList.add("mostrar");
+    aviso.classList.add("mostrar");
   }, 10);
 
-  // Remove o aviso automaticamente após 2 segundos
   setTimeout(() => {
-      aviso.classList.remove("mostrar");
-      setTimeout(() => aviso.remove(), 300); // Remove o elemento do DOM após a transição
+    aviso.classList.remove("mostrar");
+    setTimeout(() => aviso.remove(), 300);
   }, 2000);
 }
 
@@ -113,5 +126,7 @@ function limparCampos() {
   document.getElementById("plano").value = "Começar";
   document.getElementById("setor").value = "Financeiro";
   document.getElementById("mensagem").value = "";
-  
+  document.getElementById("dados__empresa").value = "";
+  document.getElementById("dados__plano").value = "";
+  document.getElementById("detalhes").value = "";
 }

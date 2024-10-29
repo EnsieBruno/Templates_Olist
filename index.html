@@ -9,12 +9,14 @@
 </head>
 <body>
     <div class="container" id="paste__code">
-        <textarea placeholder="Cole os dados do administrar empresa aqui" rows="10" cols="50"></textarea>
+        <textarea id="dados__empresa" placeholder="Cole os dados do administrar empresa aqui" rows="10" cols="50"></textarea>
+        <textarea id="dados__plano" placeholder="Cole os dados da aba plano do administrar empresa aqui" rows="10" cols="50"></textarea>
+        <textarea id="detalhes" placeholder="Informe as observações..." rows="10" cols="50"></textarea>
         <button id="preencher" onclick="preencherDados()">Preencher dados</button>
     </div>
     <div class="container">
-        <h1>Olist ERP</h1> 
-
+        <img id="logo" src="./logo-erp.svg" alt="Logo Olist">
+        <br>
         <label for="plano">Planos:</label>
         <select id="plano" name="plano">
             <option value="Começar">Começar</option>

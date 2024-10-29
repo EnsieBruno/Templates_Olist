@@ -1,29 +1,32 @@
-/* Estilo geral da página */
+
+:root{
+    --principal-color:#37aaf3;
+    --button-color: #0050dc;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Azul claro no fundo */
+    font-family: Soleil, Helvetica Neue, Helvetica, Arial, sans-serif;
+    background-color: #fff; 
     display: flex;
-    justify-content: space-between; /* Espaço entre as divs */
+    justify-content: space-between;
     height: 100vh;
     margin: 0;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums
 }
 
-h1 {
-    color: #338be9;
-}
 
-/* Container com 50% da largura da tela */
 .container {
-    background-color: #ffffff;
-    border-radius: 15px; /* Cantos arredondados */
+    background-color: #fff;
+    border-radius: 15px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 50%; /* 50% da largura da tela */
-    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    width: 50%; 
+    box-sizing: border-box;
 }
 
 #paste__code textarea{
-    height: 80vh;
+    height: 25vh;
 }
 
 /* Estilo dos inputs e textarea */
@@ -38,12 +41,12 @@ input[type="text"], textarea {
 
 /* Estilo dos botões */
 button {
-    background-color: #338be9; /* Azul */
+    background-color: var(--button-color); 
     color: white;
     padding: 10px 20px;
     margin-top: 10px;
     border: none;
-    border-radius: 10px; /* Botões arredondados */
+    border-radius: 10px;
     cursor: pointer;
     width: 100%;
     font-size: 16px;
@@ -51,7 +54,7 @@ button {
 
 label {
     font-size: 0.8em;
-    color: #338be9;
+    color: var(--principal-color);
 }
 
 #plano,
@@ -61,7 +64,7 @@ label {
     margin: 8px 0;
     border-radius: 10px;
     border: 1px solid #ccc;
-    color: #338be9;
+    color: var(--principal-color);
 }
 
 #copy,
@@ -70,7 +73,7 @@ label {
 }
 
 button:hover {
-    background-color: #0056b3; /* Cor ao passar o mouse */
+    background-color: var(--principal-color); 
 }
 
 /* Estilo para o textarea de mensagem */
