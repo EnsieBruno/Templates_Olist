@@ -53,12 +53,14 @@ function formatarTelefone() {
   let ticket = document.getElementById("ticket").value;
   let plano = document.getElementById("plano").value;
   let setor = document.getElementById("setor").value;
+  let cliente = document.getElementById("cliente").value;
 
   // Remover caracteres não numéricos
   telefone = telefone.replace(/\D/g, "");
   cnpj = cnpj.replace(/\D/g, "");
   email = email.trim();
   ticket = ticket.trim();
+  cliente = cliente.trim();
 
   // Verificar se tem 11 dígitos para aplicar o formato de telefone celular
   if (telefone.length === 11) {
@@ -77,6 +79,7 @@ function formatarTelefone() {
   // Gerar a mensagem
   let mensagem = `Boa tarde!
 
+Cliente: ${cliente}
 Transferencia para o time: ${setor}
 Plano: ${plano}
 CNPJ: ${cnpj}
